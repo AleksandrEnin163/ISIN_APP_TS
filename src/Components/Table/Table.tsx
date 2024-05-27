@@ -18,7 +18,7 @@ function Table() {
               <td>USD111111</td>
               <td>123456789</td>
               <td>
-                <Button  size='medium' label='Unsubscribe'/>
+                <Button  size='large' label='Unsubscribe'/>
               </td>
             </tr>
         </tbody>

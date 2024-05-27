@@ -17,8 +17,10 @@
 }
 
 .storybook-button--large {
-  font-size: 16px;
-  padding: 20px 35px;
+  font-size: 10px;
+  text-align: center;
+  padding: 15px 0;
+  width: 15vw;
 }
 
 .storybook-button--medium {
