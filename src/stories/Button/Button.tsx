@@ -1,4 +1,3 @@
-import React from 'react';
 import './button.css';
 
 interface ButtonProps {
@@ -9,7 +8,10 @@ interface ButtonProps {
 
 export const Button = ({ size = 'medium', label }: ButtonProps) => {
   return (
-    <button type="button" className={['storybook-button', `storybook-button--${size}`].join(' ')}>
+    <button
+      type="button"
+      className={['storybook-button', `storybook-button--${size}`].join(' ')}
+    >
       {label}
     </button>
   );
