@@ -5,38 +5,38 @@ export default {
   title: 'Button',
   component: Button,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' }
+    backgroundColor: { control: 'color' },
   },
-  args: { onClick: fn() }
+  args: { onClick: fn() },
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary = {
   args: {
-    label: 'Button'
-  }
+    label: 'Button',
+  },
 };
 
 export const Secondary = {
   args: {
-    label: 'Button'
-  }
+    label: 'Button',
+  },
 };
 
 export const Large = {
   args: {
     size: 'large',
-    label: 'Button'
-  }
+    label: 'Button',
+  },
 };
 
 export const Small = {
   args: {
     size: 'small',
-    label: 'Button'
-  }
+    label: 'Button',
+  },
 };
