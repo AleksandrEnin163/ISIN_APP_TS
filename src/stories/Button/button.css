@@ -8,12 +8,14 @@
   line-height: 1;
   color: white;
   background-color: #1ea7fd;
-  transition: background-color 0.3s, transform 0.3s ease; /
+  transition:
+    background-color 0.3s,
+    transform 0.3s ease;
 }
 
-.storybook-button:hover{
+.storybook-button:hover {
   background-color: #1283c9;
-  transform: scale(1.05)
+  transform: scale(1.05);
 }
 
 .storybook-button--large {

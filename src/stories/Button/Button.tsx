@@ -7,16 +7,9 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-
-export const Button = (
-  {size = 'medium',
-  label
-}: ButtonProps) => {
+export const Button = ({ size = 'medium', label }: ButtonProps) => {
   return (
-    <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`].join(' ')}
-    >
+    <button type="button" className={['storybook-button', `storybook-button--${size}`].join(' ')}>
       {label}
     </button>
   );
