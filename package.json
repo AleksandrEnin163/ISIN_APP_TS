@@ -12,7 +12,8 @@
     "build-storybook": "storybook build",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "test": "playwright test --ui"
+    "test": "start-server-and-test dev http://localhost:3000/ test:playwright",
+    "test:playwright": "playwright test --ui"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -23,7 +24,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "start-server-and-test": "^2.0.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.4.0",
