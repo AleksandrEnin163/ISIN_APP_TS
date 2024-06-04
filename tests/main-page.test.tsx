@@ -40,4 +40,8 @@ test('Верификация таблички с акциями', async ({ page 
 
   const firstStockIndex = await firstStockCells.nth(2).textContent();
   expect(firstStockIndex).toBe('NASDAQ');
+
+  await firstStockCells.nth(0).locator('a').click()
+  const newUrl = await page.url()
+  expect(newUrl).toBe('http://localhost:3000/stocks/MSFT')
 })
