@@ -21,7 +21,7 @@ const stocks = [
     stock_price: '$550.00',
     isin: 'US67066G1040',
     index: 'NASDAQ',
-    image_url: 'https://upload.wikimedia.org/wikipedia/en/2/21/Nvidia_logo.svg'
+    image_url: 'https://cdn.worldvectorlogo.com/logos/nvidia-7.svg'
   },
   {
     id: '2222.SR',
@@ -29,7 +29,7 @@ const stocks = [
     stock_price: '$35.00',
     isin: 'SA14TG012N13',
     index: 'Tadawul',
-    image_url: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Saudi_Aramco_Logo.svg'
+    image_url: 'https://cdn.worldvectorlogo.com/logos/aramco-1.svg'
   },
   {
     id: 'GOOGL',
@@ -53,7 +53,7 @@ const stocks = [
     stock_price: '$270.00',
     isin: 'US30303M1027',
     index: 'NASDAQ',
-    image_url: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Meta_Platforms_Inc._logo.svg'
+    image_url: 'https://cdn.worldvectorlogo.com/logos/meta-1.svg'
   },
   {
     id: 'BRK.A',
@@ -61,7 +61,7 @@ const stocks = [
     stock_price: '$480,000.00',
     isin: 'US0846707026',
     index: 'NYSE',
-    image_url: 'https://upload.wikimedia.org/wikipedia/commons/3/35/Berkshire_Hathaway.svg'
+    image_url: 'https://static.cdnlogo.com/logos/b/40/berkshire-hathaway.png'
   },
   {
     id: 'LLY',
@@ -69,7 +69,7 @@ const stocks = [
     stock_price: '$580.00',
     isin: 'US5324571083',
     index: 'NYSE',
-    image_url: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Eli_Lilly_and_Company.svg'
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Eli_Lilly_and_Company.svg/2560px-Eli_Lilly_and_Company.svg.png'
   },
   {
     id: 'TSM',
@@ -78,7 +78,7 @@ const stocks = [
     isin: 'US8740391003',
     index: 'NYSE',
     image_url:
-      'https://upload.wikimedia.org/wikipedia/en/5/57/Taiwan_Semiconductor_Manufacturing_Company_Logo.svg'
+      'https://upload.wikimedia.org/wikipedia/de/7/72/TSMC_202x_logo.svg'
   }
 ];
 
