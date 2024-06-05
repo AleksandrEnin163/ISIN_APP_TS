@@ -6,7 +6,7 @@ export default defineConfig({
     // Browser options
     headless: false,
     // Base URL
-    baseURL: 'http://localhost:3000'
+    baseURL: 'http://localhost:3000/'
     // Additional options
   }
 });
