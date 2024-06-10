@@ -1,19 +1,18 @@
-import React from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query';
+import { Stock } from '../../state/watchlist/watchlistSlice';
 
 
-
+type StockDetailUrlParams = string
 
 function StockDetail() {
-  const id = useParams().id //я когда раньше использовал useParams, он мне возразал значение строкой, а сейчас приходит объект
+  const stock_id = useParams<StockDetailUrlParams>()
   async function fetchStockInfo(){
-    const { data } = await axios.get(`/api/stock/${id}`)
+    const { data } = await axios.get(`/api/stock/${stock_id.id}`)
     return data
   }
-  const { data, isLoading, isError } = useQuery({ queryKey: ['stockInfo'], queryFn: fetchStockInfo })
-  console.log(data)
+  const { data, isLoading, isError } = useQuery<Stock>({ queryKey: ['stockInfo'], queryFn: fetchStockInfo })
   if(isLoading){
     return <h3>Loading...</h3>
   }
@@ -26,19 +25,21 @@ function StockDetail() {
     return <h3>No data</h3>
   }
 
+  const { image_url, stock_name, stock_price, id, index, isin }: Stock = data;
+
 
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3vh', marginTop: '20vh'}}>
-      <img src={data.image_url} 
-           alt={data.stock_name} 
+      <img src={image_url} 
+           alt={stock_name} 
            style={{ width: '100px', height: '100px' }} 
       />
-      <h1>{data.stock_name}</h1>
-      <h2>{data.stock_price}</h2>
+      <h1>{stock_name}</h1>
+      <h2>{stock_price}</h2>
       <div style={{display: 'flex', gap: '3vw', fontSize: '20px'}}>
-        <p>Id: {data.id}</p>
-        <p>Index: {data.index}</p>
-        <p>ISIN: {data.isin}</p>
+        <p>Id: {id}</p>
+        <p>Index: {index}</p>
+        <p>ISIN: {isin}</p>
       </div>
     </div>
   )
