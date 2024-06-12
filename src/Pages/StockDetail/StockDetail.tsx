@@ -17,12 +17,12 @@ function StockDetail() {
     return <h3>Loading...</h3>
   }
 
-  if(isError){
-    return <h3>Mistake with data fetching</h3>
+  if (isError) {
+    return <h3>Mistake with data fetching</h3>;
   }
 
-  if(!data){
-    return <h3>No data</h3>
+  if (!data) {
+    return <h3>No data</h3>;
   }
 
   const { image_url, stock_name, stock_price, id, index, isin }: Stock = data;
@@ -30,9 +30,9 @@ function StockDetail() {
 
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3vh', marginTop: '20vh'}}>
-      <img src={image_url} 
-           alt={stock_name} 
-           style={{ width: '100px', height: '100px' }} 
+      <img src={image_url}
+           alt={stock_name}
+           style={{ width: '100px', height: '100px' }}
       />
       <h1>{stock_name}</h1>
       <h2>{stock_price}</h2>
@@ -45,4 +45,4 @@ function StockDetail() {
   )
 }
 
-export default StockDetail
+export default StockDetail;
