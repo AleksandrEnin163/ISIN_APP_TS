@@ -7,10 +7,14 @@ type StockProps = React.ComponentProps<typeof StockItem>;
 type Result = {
   loading: boolean;
   error: boolean;
-  data: StockProps;
+  data: StockProps | null;
 };
 
-const mapStockEntityToStockUI = (stockEntity: StockEntity): StockProps => {
+const mapStockEntityToStockUI = (stockEntity: StockEntity | null): StockProps | null => {
+  if (!stockEntity) {
+    return null;
+  }
+
   return {
     imageUrl: stockEntity.imageUrl,
     name: stockEntity.name,

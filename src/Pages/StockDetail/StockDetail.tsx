@@ -1,12 +1,10 @@
-import { StockItem } from './components/StockItem/StockItem'
+import { StockItem } from './components/StockItem/StockItem';
 import { useStockUi } from './hooks/useStockUI';
 
-
-
 function StockDetail() {
-  const { data, loading, error } = useStockUi()
-  if(loading){
-    return <h3>Loading...</h3>
+  const { data, loading, error } = useStockUi();
+  if (loading) {
+    return <h3>Loading...</h3>;
   }
 
   if (error) {
@@ -19,14 +17,14 @@ function StockDetail() {
 
   return (
     <StockItem
-      imageUrl = {data.imageUrl}
-      name = {data.name}
-      price = {data.price}
-      id = {data.id}
-      indexName = {data.indexName}
-      isin = {data.isin}
+      imageUrl={data.imageUrl}
+      name={data.name}
+      price={data.price}
+      id={data.id}
+      indexName={data.indexName}
+      isin={data.isin}
     />
-  )
+  );
 }
 
 export default StockDetail;
