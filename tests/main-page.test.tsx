@@ -1,6 +1,6 @@
 import { test, expect } from 'playwright/test';
 
-test('Проверка нав меню', async ({ page }) => {
+test('Nav menu test', async ({ page }) => {
   await page.goto('/')
 
   await page.getByRole('link', { name: 'Stock'}).click()
@@ -12,7 +12,7 @@ test('Проверка нав меню', async ({ page }) => {
   expect(urlWatchList).toBe('http://localhost:3000/watchlist')
 });
 
-test('Верификация таблички с акциями', async ({ page }) => {
+test('Verify table with stocks', async ({ page }) => {
   await page.goto('/');
 
   const table = await page.locator('table');

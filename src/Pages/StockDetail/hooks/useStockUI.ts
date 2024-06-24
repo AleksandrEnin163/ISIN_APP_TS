@@ -1,16 +1,20 @@
 import { useParams } from 'react-router-dom';
 import { StockEntity, useStockEntity } from './useStockEntity';
-import { Stock } from '../components/Stock/Stock';
+import { StockItem } from '../components/StockItem/StockItem';
 
-type StockProps = React.ComponentProps<typeof Stock>;
+type StockProps = React.ComponentProps<typeof StockItem>;
 
 type Result = {
   loading: boolean;
   error: boolean;
-  data: StockProps;
+  data: StockProps | null;
 };
 
-const mapStockEntityToStockUI = (stockEntity: StockEntity): StockProps => {
+const mapStockEntityToStockUI = (stockEntity: StockEntity | null): StockProps | null => {
+  if (!stockEntity) {
+    return null;
+  }
+
   return {
     imageUrl: stockEntity.imageUrl,
     name: stockEntity.name,

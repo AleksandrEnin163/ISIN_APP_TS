@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from "./Components/Header/Header";
@@ -6,6 +5,7 @@ import Stocks from './Pages/Stocks/Stocks';
 import StockDetail from './Pages/StockDetail/StockDetail';
 import WatchList from './Pages/WatchList/WatchList';
 import { useQuery } from 'react-query';
+import { Stock } from './state/watchlist/watchlistSlice';
 
 async function fetchStocks(){
   const { data } = await axios.get('/api/stocks')
@@ -14,8 +14,7 @@ async function fetchStocks(){
 
 function App() {
 
-  const { data, isLoading, isError } = useQuery({ queryKey: ['stocks'], queryFn: fetchStocks })
-  console.log(data)
+  const { data, isLoading, isError } = useQuery<Stock[]>({ queryKey: ['stocks'], queryFn: fetchStocks })
   if(isLoading){
     return <h3>Loading...</h3>
   }
@@ -36,6 +35,7 @@ function App() {
         <Route path="/" element={<Stocks stocks = {data} />} />
         <Route path="/stocks/:id" element={<StockDetail />} />
         <Route path="/watchlist" element={<WatchList />} />
+        <Route path="/watchlist/stocks/:id" element={<StockDetail />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,12 +1,11 @@
-import React from 'react'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToWatchList, removeFromWatchList } from '../../state/watchlist/watchlistSlice.js'
+import { addToWatchList, removeFromWatchList, WatchlistState } from '../../state/watchlist/watchlistSlice.js'
 
 function WatchList() {
 
-  const watchlist = useSelector(state => state.watchlist);
+  const watchlist = useSelector((state: { watchlist: WatchlistState }) => state.watchlist);
   const dispatch = useDispatch()
 
   return (
@@ -27,7 +26,7 @@ function WatchList() {
           {watchlist.map((stock) => (
             <TableRow key={stock.id}>
               <TableCell>
-                <Link to={`stocks/${stock.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
+                <Link to={`/watchlist/stocks/${stock.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
                   <img src={stock.image_url} 
                   alt={stock.stock_name} 
                   style={{ width: '30px', height: '30px', marginRight: '10px' }}

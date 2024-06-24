@@ -7,7 +7,7 @@ type Props = {
   isin: string;
 };
 
-export const Stock = ({ imageUrl, name, price, id, indexName, isin }: Props) => {
+export const StockItem = ({ imageUrl, name, price, id, indexName, isin }: Props) => {
   return (
     <div
       style={{

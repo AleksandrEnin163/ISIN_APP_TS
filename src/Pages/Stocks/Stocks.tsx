@@ -1,12 +1,15 @@
-import React from 'react'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToWatchList, removeFromWatchList } from '../../state/watchlist/watchlistSlice.js'
+import { addToWatchList, removeFromWatchList, Stock, WatchlistState } from '../../state/watchlist/watchlistSlice.js'
 
-function Stocks({stocks}) {
+interface StocksProps {
+  stocks: Stock[];
+}
 
-  const watchlist = useSelector(state => state.watchlist);
+function Stocks({stocks}: StocksProps) {
+
+  const watchlist = useSelector((state: { watchlist: WatchlistState }) => state.watchlist);
   const dispatch = useDispatch()
 
   return (

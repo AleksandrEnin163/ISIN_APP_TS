@@ -22,7 +22,7 @@ type RawData = {
 type Result = {
   loading: boolean;
   error: boolean;
-  data: StockEntity;
+  data: StockEntity | null;
 };
 
 const mapRawData = (rawData: RawData): StockEntity => {
@@ -47,5 +47,13 @@ export const useStockEntity = (id?: string): Result => {
     queryFn: fetchStockInfo
   });
 
-  return { data: data.map(mapRawData), loading: isLoading, error: isError };
+  if (isLoading || isError || !data) {
+    return {
+      data: null,
+      loading: isLoading,
+      error: isError
+    };
+  }
+
+  return { data: mapRawData(data), loading: isLoading, error: isError };
 };
