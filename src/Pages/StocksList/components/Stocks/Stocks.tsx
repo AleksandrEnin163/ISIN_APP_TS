@@ -1,15 +1,24 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToWatchList, removeFromWatchList, Stock, WatchlistState } from '../../state/watchlist/watchlistSlice.js'
+import { addToWatchList, removeFromWatchList, WatchlistState } from '../../../../state/watchlist/watchlistSlice'
 
-interface StocksProps {
-  stocks: Stock[];
+type Stocks = {
+  imageUrl: string;
+  name: string;
+  price: string;
+  id: string;
+  indexName: string;
+  isin: string;
 }
 
-function Stocks({stocks}: StocksProps) {
+type StocksProps = {
+  stocks: Stocks[]
+}
 
-  const watchlist = useSelector((state: { watchlist: WatchlistState }) => state.watchlist);
+export const Stocks = ({ stocks }: StocksProps) => {
+
+  const watchlist = useSelector((state: { watchlist: WatchlistState }) => state.watchlist); // я попробывал написать через Generic но тогда типы не передавались. Гугл мне здесь не сильно подасказал, почему не работает.
   const dispatch = useDispatch()
 
   return (
@@ -24,19 +33,19 @@ function Stocks({stocks}: StocksProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {stocks.map((stock) => (
+          {stocks?.map((stock) => (
             <TableRow key={stock.id}>
               <TableCell>
                 <Link to={`stocks/${stock.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
-                  <img src={stock.image_url} 
-                  alt={stock.stock_name} 
+                  <img src={stock.imageUrl} 
+                  alt={stock.name} 
                   style={{ width: '30px', height: '30px', marginRight: '10px' }}
                   />
-                  {stock.stock_name}
+                  {stock.name}
                 </Link>
               </TableCell>
-              <TableCell>{stock.stock_price}</TableCell>
-              <TableCell>{stock.index}</TableCell>
+              <TableCell>{stock.price}</TableCell>
+              <TableCell>{stock.indexName}</TableCell>
               <TableCell>
               {watchlist.some(item => item.id === stock.id) ? (
                 <Button variant='outlined' onClick={() => dispatch(removeFromWatchList(stock))}>Удалить из WatchList</Button>
