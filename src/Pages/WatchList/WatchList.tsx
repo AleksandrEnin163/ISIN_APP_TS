@@ -27,15 +27,15 @@ function WatchList() {
             <TableRow key={stock.id}>
               <TableCell>
                 <Link to={`/watchlist/stocks/${stock.id}`} style={{textDecoration: 'none', color: 'inherit'}}>
-                  <img src={stock.image_url} 
-                  alt={stock.stock_name} 
+                  <img src={stock.imageUrl} 
+                  alt={stock.name} 
                   style={{ width: '30px', height: '30px', marginRight: '10px' }}
                   />
-                  {stock.stock_name}
+                  {stock.name}
                 </Link>
               </TableCell>
-              <TableCell>{stock.stock_price}</TableCell>
-              <TableCell>{stock.index}</TableCell>
+              <TableCell>{stock.price}</TableCell>
+              <TableCell>{stock.indexName}</TableCell>
               <TableCell>
               {watchlist.some(item => item.id === stock.id) ? (
                 <Button variant='outlined' onClick={() => dispatch(removeFromWatchList(stock))}>Удалить из WatchList</Button>

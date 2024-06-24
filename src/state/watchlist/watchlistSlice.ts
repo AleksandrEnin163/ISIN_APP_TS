@@ -1,12 +1,12 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 interface Stock {
+    imageUrl: string;
+    name: string;
+    price: string;
     id: string;
-    stock_name: string;
-    stock_price: string;
+    indexName: string;
     isin: string;
-    index: string;
-    image_url: string;
   }
 
   type WatchlistState = Stock[]
